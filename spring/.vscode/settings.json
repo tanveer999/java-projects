@@ -1,0 +1,8 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "/home/tanveer/Downloads/spcorejars/com.springsource.org.apache.commons.logging-1.1.1.jar",
+        "/home/tanveer/Downloads/spcorejars/org.springframework.beans-3.0.1.RELEASE-A.jar",
+        "/home/tanveer/Downloads/spcorejars/org.springframework.core-3.0.1.RELEASE-A.jar"
+    ]
+}
