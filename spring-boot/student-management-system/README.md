@@ -1,0 +1,1 @@
+Student Management System with spring-boot, thymeleaf, and Spring Data Jpa.
