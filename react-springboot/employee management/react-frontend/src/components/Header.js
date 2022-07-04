@@ -18,7 +18,11 @@ function Header() {
                         </li>
 
                         <li className="nav-item">
-                            <Link to="employees" className="nav-link">List Employees</Link>
+                            <Link to="/employees" className="nav-link">List Employees</Link>
+                        </li>
+
+                        <li className="nav-item">
+                            <Link to="/employee/add" className="nav-link">Add Employee</Link>
                         </li>
 
                     </ul>

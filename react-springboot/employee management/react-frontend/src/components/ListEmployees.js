@@ -11,7 +11,7 @@ function ListEmployees() {
     }, [])
 
     return (
-        <div className="container">
+        <div className="">
             <h2 className="text-center">Employees List</h2>
             <div className="row">
                 <table className="table table-striped table-bordered">
