@@ -1,7 +1,7 @@
 function Footer() {
     return (
         <footer className="footer">
-            <p className="">All Rights Reserved 2022 @Employee Management System</p>
+            <p className="row">All Rights Reserved 2022 @Employee Management System</p>
         </footer>
     )
 }
