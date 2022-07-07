@@ -41,6 +41,11 @@ public class StudentController {
 		return studentService.getStudentById(studentId);
 	}
 	
+	@GetMapping("/{email}")
+	public Student getStudentByEmail(@PathVariable (value = "eamil") String email) {
+		return studentService.getStudentByEmail(email);
+	}
+	
 	@PostMapping("/add")
 	public Student addStudent(@RequestBody Student student) {
 		return studentService.addStudent(student);
@@ -63,4 +68,5 @@ public class StudentController {
 	public void deleteStudent(@RequestParam(name = "id") Long id) {
 		studentService.deleteStudentById(id);
 	}
+	
 }
