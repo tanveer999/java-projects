@@ -1,6 +1,7 @@
 package com.learnspring.sms.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -14,12 +15,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.learnspring.sms.model.Student;
-import com.learnspring.sms.repository.StudentRepository;
 import com.learnspring.sms.service.StudentService;
 
 
 @RestController
-@RequestMapping("/api/student/")
+@RequestMapping("/api/student")
 public class StudentController {
 	
 	@Autowired
@@ -33,19 +33,26 @@ public class StudentController {
 	
 	@GetMapping
 	public List<Student> getAllStudents(){
-		return studentService.getAllStudents();
+		List<Student> students = studentService.getAllStudents();
+		return students;
 	}
 	
-	@GetMapping("/{id}")
+	@GetMapping("/id/{id}")
 	public Student getStudentById(@PathVariable (value = "id") Long studentId) {
 		return studentService.getStudentById(studentId);
 	}
 	
-	@GetMapping("/{email}")
-	public Student getStudentByEmail(@PathVariable (value = "eamil") String email) {
+	@GetMapping("/email")
+	public String getStudentFirstNameFromEmail(@RequestParam (name = "email") String email) {
+		return studentService.getStudentFirstNameFromEmail(email);
+	}
+	
+	@GetMapping("/get/student/email")
+	public Student getStudentByEmail(@RequestParam (name = "email") String email) {
 		return studentService.getStudentByEmail(email);
 	}
 	
+
 	@PostMapping("/add")
 	public Student addStudent(@RequestBody Student student) {
 		return studentService.addStudent(student);
@@ -64,7 +71,7 @@ public class StudentController {
 //		studentService.deleteStudentById(studentId);
 //	}
 	
-	@DeleteMapping("/delete/")
+	@DeleteMapping("/delete")
 	public void deleteStudent(@RequestParam(name = "id") Long id) {
 		studentService.deleteStudentById(id);
 	}

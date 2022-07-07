@@ -44,10 +44,13 @@ public class StudentSerivceImpl implements StudentService{
 	}
 
 	@Override
+	public String getStudentFirstNameFromEmail(String email) {
+		return studentRepository.findStudentFirstNameByEmail(email);
+	}
+
+	@Override
 	public Student getStudentByEmail(String email) {
 		return studentRepository.findStudentByEmail(email);
 	}
-	
-	
-	
+
 }
