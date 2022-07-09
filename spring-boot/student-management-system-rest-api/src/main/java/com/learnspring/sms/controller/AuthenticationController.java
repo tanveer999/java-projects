@@ -26,9 +26,19 @@ public class AuthenticationController {
 	
 	// default user name: user
 	// password: (Using generated security password:) can be found in console
-	@GetMapping("/security/test")
-	public String testSecurity() {
-		return "Security testing";
+	@GetMapping("/security/all")
+	public String allApiTest() {
+		return "Accessible by All";
+	}
+	
+	@GetMapping("/security/user")
+	public String userApiTest() {
+		return "Accessible by User";
+	}
+	
+	@GetMapping("/security/admin")
+	public String adminApiTest() {
+		return "Accessible only by Admin";
 	}
 	
 	@PostMapping("/login")
