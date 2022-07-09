@@ -50,7 +50,8 @@ public class StudentSerivceImpl implements StudentService{
 
 	@Override
 	public Student getStudentByEmail(String email) {
-		return studentRepository.findStudentByEmail(email);
+		Student student =  studentRepository.findStudentByEmail(email);
+		return student;
 	}
 
 }

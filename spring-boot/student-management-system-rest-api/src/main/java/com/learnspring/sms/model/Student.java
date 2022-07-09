@@ -21,16 +21,26 @@ public class Student {
 	
 	private String email;
 	
+	@Column(nullable = false)
+	private String password;
+	
 	public Student() {
 		
 	}
-	public Student(String firstName, String lastName, String email) {
+	public Student(String firstName, String lastName, String email, String password) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
+		this.password = password;
 	}
 	
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
 	public Long getId() {
 		return id;
 	}
@@ -56,5 +66,10 @@ public class Student {
 		this.email = email;
 	}
 	
+	
+	@Override
+	public String toString() {
+		return "email: " + email + ", password: " + password;
+	}
 
 }
