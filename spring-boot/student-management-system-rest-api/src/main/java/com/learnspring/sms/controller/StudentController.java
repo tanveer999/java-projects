@@ -6,6 +6,8 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -53,16 +55,24 @@ public class StudentController {
 		return studentService.getStudentFirstNameFromEmail(email);
 	}
 	
+//	@GetMapping("/get/student/email")
+//	public Student getStudentByEmail(@RequestParam (name = "email") String email) {
+//		Student student = studentService.getStudentByEmail(email);
+//		if(student == null) {
+//			logger.error("Error fetching student by email");
+//			throw new ResourceAccessException("Student not found with email id: " + email);
+//		}
+//		return student;
+//	}
 	@GetMapping("/get/student/email")
-	public Student getStudentByEmail(@RequestParam (name = "email") String email) {
+	public ResponseEntity<Student> getStudentByEmail(@RequestParam (name = "email") String email) {
 		Student student = studentService.getStudentByEmail(email);
 		if(student == null) {
 			logger.error("Error fetching student by email");
 			throw new ResourceAccessException("Student not found with email id: " + email);
 		}
-		return student;
+		return new ResponseEntity<>(student, HttpStatus.OK);
 	}
-	
 
 	@PostMapping("/add")
 	public Student addStudent(@RequestBody Student student) {
