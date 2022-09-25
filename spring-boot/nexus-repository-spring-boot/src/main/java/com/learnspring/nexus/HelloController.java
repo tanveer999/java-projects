@@ -1,19 +1,15 @@
-package com.ta.springboorhelloworld.controller;
+package com.learnspring.nexus;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class HelloWorldController {
-
+@RequestMapping("/")
+public class HelloController {
+	
 	@GetMapping("/")
-	public String ok() {
-		return "ok";
-	}
-
-	@GetMapping("/hello")
-	public String hello() {
-		return "Hello TA";
+	public String helloWorld() {
+		return "Hello world";
 	}
 }
